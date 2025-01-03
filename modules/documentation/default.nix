@@ -101,7 +101,7 @@ in
     programs.info.enable = cfg.info.enable;
 
     environment.systemPackages = mkMerge [
-      (mkIf cfg.man.enable [ manual.manpages ])
+      (mkIf cfg.man.enable [ manual.manpages  manual.commonmark])
       (mkIf cfg.doc.enable [ manual.manualHTML helpScript ])
     ];
 
