@@ -144,4 +144,18 @@ in rec {
         }
       ' $out/share/man/man5/configuration.nix.5
     '';
+
+  # Generate the nix-darwin commonmark
+  commonMark = runCommand "darwin-commonmark"
+    { nativeBuildInputs = [ buildPackages.nixos-render-docs ];
+      allowedReferences = ["out"];
+    }
+    ''
+      # Generate commonmark
+      mkdir -p $out/share/commonmark
+      nixos-render-docs -j $NIX_BUILD_CORES options commonmark \
+        --revision ${lib.escapeShellArg revision} \
+        ${optionsJSON}/share/doc/darwin/options.json \
+        $out/share/commonmark/commonmark.md
+    '';
 }
