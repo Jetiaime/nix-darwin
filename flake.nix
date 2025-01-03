@@ -64,7 +64,7 @@
     checks = forDarwinSystems (system: jobs.${system}.tests // jobs.${system}.examples);
 
     packages = forAllSystems (system: {
-      inherit (jobs.${system}.docs) manualHTML manpages optionsJSON;
+      inherit (jobs.${system}.docs) manualHTML manpages commonmark optionsJSON;
     } // (nixpkgs.lib.optionalAttrs (nixpkgs.lib.hasSuffix "darwin" system) (let
       pkgs = import nixpkgs {
         inherit system;

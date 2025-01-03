@@ -146,7 +146,7 @@ in rec {
     '';
 
   # Generate the nix-darwin commonmark
-  commonMark = runCommand "darwin-commonmark"
+  commonmark = runCommand "darwin-commonmark"
     { nativeBuildInputs = [ buildPackages.nixos-render-docs ];
       allowedReferences = ["out"];
     }

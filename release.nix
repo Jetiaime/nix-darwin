@@ -71,7 +71,7 @@ let
 
 in {
   docs = {
-    inherit (manual) manualHTML manpages optionsJSON;
+    inherit (manual) manualHTML manpages commonmark optionsJSON;
   };
 
   examples.hydra = makeSystem ./modules/examples/hydra.nix;
