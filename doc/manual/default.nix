@@ -152,6 +152,7 @@ in rec {
     }
     ''
       # Generate commonmark
+      echo ">>> Generating commonmark!!!"
       mkdir -p $out/share/commonmark
       nixos-render-docs -j $NIX_BUILD_CORES options commonmark \
         --revision ${lib.escapeShellArg revision} \
